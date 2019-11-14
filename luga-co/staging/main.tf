@@ -1,6 +1,8 @@
 terraform {
   backend "s3" {
-    bucket = "haplo-terraform-remote-state"
+    bucket = "luga-terraform-remote-state"
+    dynamodb_table = "luga-terraform-remote-state-lock"
+    encrypt = true
     key = "state"
     region = "ap-southeast-2"
   }
@@ -15,8 +17,8 @@ provider "aws" {
 data "terraform_remote_state" "luga-co" {
   backend = "s3"
   config = {
-    bucket = "haplo-terraform-remote-state"
-    key = "env:/luga-routes-luga-co-production/state"
+    bucket = "luga-terraform-remote-state"
+    key = "env:/routes-luga-co-production/state"
     region = "ap-southeast-2"
   }
 }

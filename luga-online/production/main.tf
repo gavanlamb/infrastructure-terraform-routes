@@ -1,6 +1,8 @@
 terraform {
   backend "s3" {
-    bucket = "haplo-terraform-remote-state"
+    bucket = "luga-terraform-remote-state"
+    dynamodb_table = "luga-terraform-remote-state-lock"
+    encrypt = true
     key = "state"
     region = "ap-southeast-2"
   }
