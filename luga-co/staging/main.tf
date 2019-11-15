@@ -6,18 +6,19 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "luga-terraform-remote-state"
-    dynamodb_table = "luga-terraform-remote-state-lock"
-    encrypt = true
+    bucket = "4df9-terraform-remote-state"
+    dynamodb_table = "terraform-remote-state-lock"
     key = "state"
     region = "ap-southeast-2"
+    shared_credentials_file = "/Users/gavanlamb/.aws/Credentials"
+    profile = "luga"
   }
 }
 
 data "terraform_remote_state" "luga-co" {
   backend = "s3"
   config = {
-    bucket = "luga-terraform-remote-state"
+    bucket = "4df9-terraform-remote-state"
     key = "env:/routes-luga-co-production/state"
     region = "ap-southeast-2"
   }
