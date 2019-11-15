@@ -1,3 +1,9 @@
+provider "aws" {
+  region = "ap-southeast-2"
+  shared_credentials_file = "/Users/gavanlamb/.aws/Credentials"
+  profile = "luga"
+}
+
 terraform {
   backend "s3" {
     bucket = "luga-terraform-remote-state"
@@ -6,12 +12,6 @@ terraform {
     key = "state"
     region = "ap-southeast-2"
   }
-}
-
-provider "aws" {
-  region = "ap-southeast-2"
-  shared_credentials_file = "/Users/gavanlamb/.aws/Credentials"
-  profile = "default"
 }
 
 resource "aws_route53_zone" "luga-co" {
