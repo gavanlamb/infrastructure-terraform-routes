@@ -16,5 +16,7 @@ Routes for LuGa that are not provisioned or assigned to existing service(s)
 | production  | routes-luga-online-production | [luga.online](http://luga.online) |
 
 ## Apply Changes
-1. `terraform plan`
-2. `terraform apply` and `yes`
+1. `terraform init`
+2. `terraform workspace new {workspace}`
+3. `terraform plan`
+4. `terraform apply` and yes
